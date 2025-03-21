@@ -7,6 +7,7 @@ import {
 import express from 'express';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { AppDataSource } from './db';
 
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
@@ -37,6 +38,16 @@ app.use(
   }),
 );
 
+AppDataSource.initialize()
+  .then(() => {
+    console.log('AppDataSource:initialized');
+  })
+  .catch((error) => {
+    console.log('AppDataSource:error', error);
+  });
+
+
+
 /**
  * Handle all other requests by rendering the Angular application.
  */
@@ -48,6 +59,7 @@ app.use('/**', (req, res, next) => {
     )
     .catch(next);
 });
+
 
 /**
  * Start the server if this module is the main entry point.
