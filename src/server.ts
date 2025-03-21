@@ -12,6 +12,11 @@ import { AppDataSource } from './db';
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
+//@ts-ignore
+globalThis.__dirname = import.meta.dirname
+//@ts-ignore
+globalThis.__filename = import.meta.filename
+
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
