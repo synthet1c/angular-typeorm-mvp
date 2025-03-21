@@ -2,6 +2,7 @@
 globalThis.__dirname = import.meta.dirname
 //@ts-ignore
 globalThis.__filename = import.meta.filename
+import 'reflect-metadata';
 
 import {
   AngularNodeAppEngine,

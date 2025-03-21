@@ -21,6 +21,9 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [],
+            "externalDependencies": [
+              "app-root-path"
+            ],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
